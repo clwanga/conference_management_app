@@ -32,7 +32,17 @@ $result = $crud->getAttendees();
                 <td><?php echo $r['phone'] ?></td>
                 <td><?php echo $r['birthdate'] ?></td>
                 <td><?php echo $r['name'] ?></td>
-                <td><a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-primary">View</a></td>
+                <td>
+                    <a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-primary">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                    <a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-success">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-danger">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </a>
+                </td>
             </tr>
         <?php } ?>
     </tbody>
