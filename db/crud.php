@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
 class Crud
 {
     //private database object
@@ -47,10 +50,22 @@ class Crud
         return $result;
     }
 
-    public function getSpecialities(){
+    public function getAttendeeDetails($id)
+    {
+        $sql = "SELECT * FROM `users` a inner join `specialities` s on a.speciality_id = s.speciality_id WHERE id = :id";
+        $statement = $this->db->prepare($sql);
+        $statement->bindparam(':id', $id);
+        $statement->execute();
+        $result = $statement->fetch();
+
+        return $result;
+    }
+
+    public function getSpecialities()
+    {
         $sql = "SELECT * FROM `specialities`";
         $result = $this->db->query($sql);
 
-        return $result;  
+        return $result;
     }
 }

@@ -19,6 +19,7 @@ $result = $crud->getAttendees();
             <th scope="col">Phone Number</th>
             <th scope="col">Date of Birth</th>
             <th scope="col">Speciality</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@ $result = $crud->getAttendees();
                 <td><?php echo $r['phone'] ?></td>
                 <td><?php echo $r['birthdate'] ?></td>
                 <td><?php echo $r['name'] ?></td>
+                <td><a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-primary">View</a></td>
             </tr>
         <?php } ?>
     </tbody>
