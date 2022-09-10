@@ -36,7 +36,7 @@ $result = $crud->getAttendees();
                     <a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-primary">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
-                    <a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-success">
+                    <a href="edit.php?id=<?php echo $r['id'] ?>" class="btn btn-success">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                     <a href="view.php?id=<?php echo $r['id'] ?>" class="btn btn-danger">
