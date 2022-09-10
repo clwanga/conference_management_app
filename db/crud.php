@@ -61,6 +61,54 @@ class Crud
         return $result;
     }
 
+    public function updateAttendeeDetails($fname, $lname, $dob, $email, $contact, $speciality, $id)
+    {
+        try {
+            //sql to update record
+            $sql = "UPDATE `users` SET `firstname`=:fname,`lastname`=:lname,`email`=:email,`phone`=:contact,`birthdate`=:dob,`speciality_id`=:speciality WHERE id = :id";
+
+            //prepare the sql statement for execution
+            $statement = $this->db->prepare($sql);
+
+            //bind parameters for execution
+            $statement->bindparam(':fname', $fname);
+            $statement->bindparam(':lname', $lname);
+            $statement->bindparam(':dob', $dob);
+            $statement->bindparam(':email', $email);
+            $statement->bindparam(':contact', $contact);
+            $statement->bindparam(':speciality', $speciality);
+            $statement->bindparam(':id', $id);
+
+            $statement->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public function deleteAttendeeDetails($id){
+
+        try {
+                    //sql to delete record in databas
+        $sql = "DELETE FROM `users` WHERE id = :id";
+
+        //prepare statement for deleting operation
+        $statement = $this->db->prepare($sql);
+
+        //bind parameters
+        $statement->bindparam(':id', $id);
+
+        //execute the sql query
+        $statement->execute();
+
+        return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function getSpecialities()
     {
         $sql = "SELECT * FROM `specialities`";
