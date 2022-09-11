@@ -1,5 +1,5 @@
 <?php
-$title = "Success";
+$title = "Edit Redirect Page";
 require_once 'db/connection.php';
 
 
@@ -19,10 +19,12 @@ if (isset($_POST['submit'])) {
     if ($issuccess) {
         header("Location: viewrecords.php");
     } else {
-        echo 'error occured';
+        echo '<br>';
+        include 'includes/errormessage.php';
     }
 } else {
-    echo 'error';
+    echo '<br>';
+    include 'includes/errormessage.php';
 }
 ?>
 

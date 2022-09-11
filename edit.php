@@ -6,7 +6,9 @@ require_once 'db/connection.php';
 $result = $crud->getSpecialities();
 
 if (!isset($_GET['id'])) {
-    echo 'error';
+    echo '<br>';
+    include 'includes/errormessage.php';
+    
 } else {
     $id = $_GET['id'];
     $attendee = $crud->getAttendeeDetails($id);

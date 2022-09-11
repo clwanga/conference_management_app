@@ -1,8 +1,17 @@
 <?php 
-$host = "localhost";
-$username = "root";
-$password = "1234";
-$dbname = "attendance_app";
+
+//development database connection
+// $host = "localhost";
+// $username = "root";
+// $password = "1234";
+// $dbname = "attendance_app";
+// $charset = "utf8mb4";
+
+//remote database connection
+$host = "remotemysql.com";
+$username = "GZjWoWkdWk";
+$password = "Ua75aSgu7r";
+$dbname = "GZjWoWkdWk";
 $charset = "utf8mb4";
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";

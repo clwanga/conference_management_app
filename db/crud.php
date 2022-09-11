@@ -42,25 +42,38 @@ class Crud
         }
     }
 
+    //function to get all registered attendees
     public function getAttendees()
     {
-        $sql = "SELECT * FROM `users` a inner join `specialities` s on a.speciality_id = s.speciality_id";
-        $result = $this->db->query($sql);
+        try {
+            $sql = "SELECT * FROM `users` a inner join `specialities` s on a.speciality_id = s.speciality_id";
+            $result = $this->db->query($sql);
 
-        return $result;
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
+    //function to return a single row of attendees details by passing the id
     public function getAttendeeDetails($id)
     {
-        $sql = "SELECT * FROM `users` a inner join `specialities` s on a.speciality_id = s.speciality_id WHERE id = :id";
-        $statement = $this->db->prepare($sql);
-        $statement->bindparam(':id', $id);
-        $statement->execute();
-        $result = $statement->fetch();
+        try {
+            $sql = "SELECT * FROM `users` a inner join `specialities` s on a.speciality_id = s.speciality_id WHERE id = :id";
+            $statement = $this->db->prepare($sql);
+            $statement->bindparam(':id', $id);
+            $statement->execute();
+            $result = $statement->fetch();
 
-        return $result;
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
+    //function to update the attendee details 
     public function updateAttendeeDetails($fname, $lname, $dob, $email, $contact, $speciality, $id)
     {
         try {
@@ -88,22 +101,24 @@ class Crud
         }
     }
 
-    public function deleteAttendeeDetails($id){
+    //function that helps us delete a recordd in our users table
+    public function deleteAttendeeDetails($id)
+    {
 
         try {
-                    //sql to delete record in databas
-        $sql = "DELETE FROM `users` WHERE id = :id";
+            //sql to delete record in databas
+            $sql = "DELETE FROM `users` WHERE id = :id";
 
-        //prepare statement for deleting operation
-        $statement = $this->db->prepare($sql);
+            //prepare statement for deleting operation
+            $statement = $this->db->prepare($sql);
 
-        //bind parameters
-        $statement->bindparam(':id', $id);
+            //bind parameters
+            $statement->bindparam(':id', $id);
 
-        //execute the sql query
-        $statement->execute();
+            //execute the sql query
+            $statement->execute();
 
-        return true;
+            return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -111,9 +126,13 @@ class Crud
 
     public function getSpecialities()
     {
-        $sql = "SELECT * FROM `specialities`";
-        $result = $this->db->query($sql);
+        try {
+            $sql = "SELECT * FROM `specialities`";
+            $result = $this->db->query($sql);
 
-        return $result;
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }

@@ -39,7 +39,7 @@ $result = $crud->getAttendees();
                     <a href="edit.php?id=<?php echo $r['id'] ?>" class="btn btn-success">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
-                    <a href="delete.php?id=<?php echo $r['id'] ?>" class="btn btn-danger">
+                    <a onclick="return confirm('Are you sure you want to delete this record?');" href="delete.php?id=<?php echo $r['id'] ?>" class="btn btn-danger">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </a>
                 </td>

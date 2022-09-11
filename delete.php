@@ -4,7 +4,7 @@ require_once 'db/connection.php';
 
 //crud operation
 if (!isset($_GET['id'])) {
-   echo 'error'; 
+   include 'includes/errormessage.php';
 }else {
     $id = $_GET['id'];
     $result = $crud->deleteAttendeeDetails($id);
@@ -12,7 +12,8 @@ if (!isset($_GET['id'])) {
     if ($result) {
         header("Location: viewrecords.php");
     } else {
-        echo 'error';
+        echo '<br>';
+        include 'includes/errormessage.php';
     }
     
 }
