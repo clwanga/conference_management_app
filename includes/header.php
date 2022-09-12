@@ -1,3 +1,10 @@
+<?php
+
+//this includes a session file that contains code that starts a session
+//by having it in the header page it will be included on every page. alloweing session capability to be used on every page across the website. 
+include 'session.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,39 +22,22 @@
         <!-- beginning of navbar -->
         <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">IT Conference</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="viewrecords.php">View Attendees</a>
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li> -->
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-item nav-link" href="viewrecords.php">View Attendees</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <?php if (!isset($_SESSION['user_id'])) { ?>
+                            <a class="nav-item nav-link" aria-current="page" href="loginpage.php">Login</a>
+                        <?php } else { ?>
+                            <a class="nav-item nav-link" aria-current="page" href="#"> <span>Hello <?php echo $_SESSION['username']. '!'?></span></a>
+                            <a class="nav-item nav-link" aria-current="page" href="logout.php">Logout</a>
+                        <?php }?>
+                    </div>
                 </div>
             </div>
         </nav>
