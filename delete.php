@@ -1,5 +1,6 @@
 <?php
 $title = "Delete Record";
+require_once 'includes/auth_check.php';
 require_once 'db/connection.php';
 
 //crud operation

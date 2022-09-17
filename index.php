@@ -10,7 +10,7 @@ $result = $crud->getSpecialities();
 <h4>Registration form</h4>
 <br>
 <!-- start -->
-<form class="w-50 p-3" method="post" action="success.php">
+<form class="w-50 p-3" method="post" action="success.php" enctype="multipart/form-data">
     <div class="form-group">
         <label for="first_name">First Name</label>
         <input type="text" class="form-control" id="first_name" placeholder="firstname" name="fname">
@@ -39,6 +39,11 @@ $result = $crud->getSpecialities();
             <option value="<?php echo $r['speciality_id']?>"><?php echo $r['name']?></option>
             <?php } ?>
         </select>
+    </div>
+    <div class="custom-file">
+        <input type="file" accept="image/*" class="custom-file-input" id="avatar" placeholder="avatar" name="avatar">
+        <label class="custom-file-label" for="avatar">Choose file</label>
+        <small id="avatar" class="form-text text-warning">File upload is optional</small>
     </div>
     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 </form>

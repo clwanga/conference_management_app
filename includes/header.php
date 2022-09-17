@@ -18,27 +18,27 @@ include 'session.php';
 </head>
 
 <body>
-    <div class="container">
-        <!-- beginning of navbar -->
-        <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link active" aria-current="page" href="index.php">Home</a>
-                        <a class="nav-item nav-link" href="viewrecords.php">View Attendees</a>
-                    </div>
-                    <div class="navbar-nav ml-auto">
-                        <?php if (!isset($_SESSION['user_id'])) { ?>
-                            <a class="nav-item nav-link" aria-current="page" href="loginpage.php">Login</a>
-                        <?php } else { ?>
-                            <a class="nav-item nav-link" aria-current="page" href="#"> <span>Hello <?php echo $_SESSION['username']. '!'?></span></a>
-                            <a class="nav-item nav-link" aria-current="page" href="logout.php">Logout</a>
-                        <?php }?>
-                    </div>
+    <!-- beginning of navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary text-white">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto container">
+                    <a class="nav-item nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-item nav-link" href="viewrecords.php">View Attendees</a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <?php if (!isset($_SESSION['user_id'])) { ?>
+                        <a class="nav-item nav-link" aria-current="page" href="loginpage.php">Login</a>
+                    <?php } else { ?>
+                        <a class="nav-item nav-link" aria-current="page" href="#"> <span>Hello <?php echo $_SESSION['username'] . '!' ?></span></a>
+                        <a class="nav-item nav-link" aria-current="page" href="logout.php">Logout</a>
+                    <?php } ?>
                 </div>
             </div>
-        </nav>
-        <!-- end of navbar -->
+        </div>
+    </nav>
+    <!-- end of navbar -->
+    <div class="container">
