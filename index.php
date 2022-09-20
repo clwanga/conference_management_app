@@ -6,7 +6,6 @@ require_once 'db/connection.php';
 $result = $crud->getSpecialities();
 ?>
 <br>
-<hr>
 <h4>Registration form</h4>
 <br>
 <!-- start -->
