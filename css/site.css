@@ -31,7 +31,7 @@ nav {
     width: 100px;
 }
 .pages a:hover {
-    border-bottom: 2px solid orange;
+    border-bottom: 2px solid black;
     color: black;
 }
 .pages a {
@@ -72,4 +72,40 @@ nav {
 }
 .contact {
   margin-top: 20px;
+}
+#bannerHeader{
+  font-size: 82.5px;
+  font-weight: bold;
+  line-height: 100px;
+  text-align: center;
+}
+.banner{
+  margin: 100px auto 20px auto;
+}
+#supportingText{
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+  font-size: 10;
+  margin: 0px 0px 30px auto;
+}
+.banner button {
+  width: 200px;
+}
+#services{
+  text-align: center;
+  margin: 100px auto 20px auto;
+  font-weight: bold;
+  border: 2px solid orange;
+  padding: 5px;
+  border-radius: 20px;
+  width: 150px;
+}
+.blueCard:hover{
+  border: 2px solid rgb(19, 129, 233);
+  cursor:pointer;
+}
+.orangeCard:hover{
+  border: 2px solid orange;
+  cursor: pointer;
 }
